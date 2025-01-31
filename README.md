@@ -1,1 +1,1 @@
-## [Access Here](https://house-price-prediction-web-scraping-to.onrender.com/predict)
+## [Access Here](https://house-price-prediction-web-scraping-to.onrender.com)
