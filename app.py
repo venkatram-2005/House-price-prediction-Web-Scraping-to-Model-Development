@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
+import os
 
 # Create Flask app
 app = Flask(__name__, template_folder="templates")
@@ -32,7 +33,7 @@ def predict():
 
         # Predict house price
         prediction = model.predict(input_data)[0]
-
+        prediction = round(prediction, 4) 
         return render_template('index.html', prediction=prediction)
 
     except Exception as e:
@@ -40,4 +41,5 @@ def predict():
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Render sets PORT dynamically
+    app.run(host='0.0.0.0', port=port, debug=True)
